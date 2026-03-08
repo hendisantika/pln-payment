@@ -1,1 +1,15 @@
-.idea
+# IDE
+.idea/
+*.iml
+
+# Java / Maven
+target/
+*.class
+*.jar
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
