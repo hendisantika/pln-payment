@@ -13,14 +13,12 @@ package com.hendisantika.pln.dto;
  */
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class ApiResponse<T> {
 
     private boolean success;
@@ -28,26 +26,26 @@ public class ApiResponse<T> {
     private T data;
 
     public static <T> ApiResponse<T> ok(T data) {
-        return ApiResponse.<T>builder()
-                .success(true)
-                .message("Success")
-                .data(data)
-                .build();
+        ApiResponse<T> response = new ApiResponse<>();
+        response.setSuccess(true);
+        response.setMessage("Success");
+        response.setData(data);
+        return response;
     }
 
     public static <T> ApiResponse<T> ok(String message, T data) {
-        return ApiResponse.<T>builder()
-                .success(true)
-                .message(message)
-                .data(data)
-                .build();
+        ApiResponse<T> response = new ApiResponse<>();
+        response.setSuccess(true);
+        response.setMessage(message);
+        response.setData(data);
+        return response;
     }
 
     public static <T> ApiResponse<T> error(String message) {
-        return ApiResponse.<T>builder()
-                .success(false)
-                .message(message)
-                .data(null)
-                .build();
+        ApiResponse<T> response = new ApiResponse<>();
+        response.setSuccess(false);
+        response.setMessage(message);
+        response.setData(null);
+        return response;
     }
 }
